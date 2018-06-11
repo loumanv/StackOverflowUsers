@@ -12,6 +12,14 @@
 		03303B8D20CE71EE00BC9F1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03303B8B20CE71EE00BC9F1B /* Main.storyboard */; };
 		03303B8F20CE71EF00BC9F1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03303B8E20CE71EF00BC9F1B /* Assets.xcassets */; };
 		03303B9220CE71EF00BC9F1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03303B9020CE71EF00BC9F1B /* LaunchScreen.storyboard */; };
+		03303BB420CE779600BC9F1B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BB320CE779600BC9F1B /* User.swift */; };
+		03303BB520CE779600BC9F1B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BB320CE779600BC9F1B /* User.swift */; };
+		03303BB820CE77FF00BC9F1B /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BB720CE77FF00BC9F1B /* APIConstants.swift */; };
+		03303BB920CE77FF00BC9F1B /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BB720CE77FF00BC9F1B /* APIConstants.swift */; };
+		03303BBD20CE78E600BC9F1B /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 03303BBC20CE78E600BC9F1B /* users.json */; };
+		03303BBE20CE78E600BC9F1B /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 03303BBC20CE78E600BC9F1B /* users.json */; };
+		03303BC020CE793700BC9F1B /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BBF20CE793700BC9F1B /* UserTests.swift */; };
+		03303BC220CE798900BC9F1B /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BC120CE798900BC9F1B /* Factory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +42,11 @@
 		03303B9320CE71F000BC9F1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03303B9820CE71F000BC9F1B /* StackOverflowUsersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackOverflowUsersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03303B9E20CE71F000BC9F1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03303BB320CE779600BC9F1B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		03303BB720CE77FF00BC9F1B /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		03303BBC20CE78E600BC9F1B /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
+		03303BBF20CE793700BC9F1B /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		03303BC120CE798900BC9F1B /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				03303BA720CE720400BC9F1B /* App */,
+				03303BB620CE77E400BC9F1B /* Networking */,
+				03303BB020CE774100BC9F1B /* Users */,
 			);
 			path = StackOverflowUsers;
 			sourceTree = "<group>";
@@ -83,6 +98,8 @@
 		03303B9B20CE71F000BC9F1B /* StackOverflowUsersTests */ = {
 			isa = PBXGroup;
 			children = (
+				03303BBB20CE786600BC9F1B /* Factories */,
+				03303BBA20CE786100BC9F1B /* Model */,
 				03303BAD20CE72AE00BC9F1B /* Supporting Files */,
 			);
 			path = StackOverflowUsersTests;
@@ -145,8 +162,49 @@
 			isa = PBXGroup;
 			children = (
 				03303B9E20CE71F000BC9F1B /* Info.plist */,
+				03303BBC20CE78E600BC9F1B /* users.json */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		03303BB020CE774100BC9F1B /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				03303BB220CE776F00BC9F1B /* Model */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		03303BB220CE776F00BC9F1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				03303BB320CE779600BC9F1B /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		03303BB620CE77E400BC9F1B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				03303BB720CE77FF00BC9F1B /* APIConstants.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		03303BBA20CE786100BC9F1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				03303BBF20CE793700BC9F1B /* UserTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		03303BBB20CE786600BC9F1B /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				03303BC120CE798900BC9F1B /* Factory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +261,7 @@
 					};
 					03303B9720CE71F000BC9F1B = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0930;
 						TestTargetID = 03303B8320CE71EE00BC9F1B;
 					};
 				};
@@ -231,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03303BBD20CE78E600BC9F1B /* users.json in Resources */,
 				03303B9220CE71EF00BC9F1B /* LaunchScreen.storyboard in Resources */,
 				03303B8F20CE71EF00BC9F1B /* Assets.xcassets in Resources */,
 				03303B8D20CE71EE00BC9F1B /* Main.storyboard in Resources */,
@@ -241,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03303BBE20CE78E600BC9F1B /* users.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,8 +329,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03303BB820CE77FF00BC9F1B /* APIConstants.swift in Sources */,
 				03303B8A20CE71EE00BC9F1B /* ViewController.swift in Sources */,
 				03303B8820CE71EE00BC9F1B /* AppDelegate.swift in Sources */,
+				03303BB420CE779600BC9F1B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +340,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03303BC220CE798900BC9F1B /* Factory.swift in Sources */,
+				03303BC020CE793700BC9F1B /* UserTests.swift in Sources */,
+				03303BB920CE77FF00BC9F1B /* APIConstants.swift in Sources */,
+				03303BB520CE779600BC9F1B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +532,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K877UC2B8P;
 				INFOPLIST_FILE = "StackOverflowUsersTests/Supporting Files/Info.plist";
@@ -475,6 +543,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.loumanv.StackOverflowUsersTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StackOverflowUsers.app/StackOverflowUsers";
@@ -486,6 +555,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K877UC2B8P;
 				INFOPLIST_FILE = "StackOverflowUsersTests/Supporting Files/Info.plist";
