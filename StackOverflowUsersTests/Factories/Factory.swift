@@ -34,4 +34,9 @@ class Factory {
         let dictionary = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! JSONDictionary
         return User.array(json: dictionary)!
     }
+
+    static func createUsersViewModel() -> UsersViewModel {
+        let users = Factory.createUsers()
+        return UsersViewModel(users: users)
+    }
 }
