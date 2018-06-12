@@ -55,7 +55,13 @@ extension UsersViewController: UITableViewDataSource {
         guard let cell = dequeueCell as? UserCell else { return UITableViewCell() }
         cell.nameLabel.text = viewModel?.nameFor(row: indexPath.row)
         cell.reputationLabel.text = viewModel?.reputationFor(row: indexPath.row)
-        // TODO: Add request to load the cell image 
+        if let url = viewModel?.profileImageURLFor(row: indexPath.row) {
+            NetworkClient.shared.loadImage(url: url) { [cell] (image, error) in
+                guard error == nil, let image = image else { return }
+                cell.profileImageView.image = image
+            }
+        }
+
         return cell
     }
 }
@@ -63,9 +69,16 @@ extension UsersViewController: UITableViewDataSource {
 extension UsersViewController: ContentLoadable {
 
     func prepareData(_ completion: @escaping ContentLoadableCompletion) {
-        // TODO: Add actual network request
-        viewModel = Factory.createUsersViewModel()
-        completion(nil)
+        NetworkClient.shared.loadUsers { [unowned self] (users, error) in
+            guard error == nil, let users = users, users.count > 0 else {
+                // Show appropriate error message
+                let error = AppError(localizedTitle: "No users", localizedDescription: "No users", code: 4)
+                completion(error)
+                return
+            }
+            self.viewModel = UsersViewModel(users: users)
+            completion(nil)
+        }
     }
 
     func reloadView() {

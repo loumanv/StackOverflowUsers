@@ -8,8 +8,6 @@
 
 import Foundation
 
-typealias JSONDictionary = [String: Any]
-
 enum UserError: LocalizedError {
     case missingName
     case missingReputation

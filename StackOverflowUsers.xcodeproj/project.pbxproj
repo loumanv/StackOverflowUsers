@@ -35,6 +35,11 @@
 		03303C0320CEDA9D00BC9F1B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303C0120CEDA9D00BC9F1B /* UserCell.swift */; };
 		03303C0420CEDA9D00BC9F1B /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03303C0220CEDA9D00BC9F1B /* UserCell.xib */; };
 		03303C0520CFED6F00BC9F1B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303C0120CEDA9D00BC9F1B /* UserCell.swift */; };
+		03303C0720CFF99600BC9F1B /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303C0620CFF99600BC9F1B /* NetworkClient.swift */; };
+		03303C0820CFF99600BC9F1B /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303C0620CFF99600BC9F1B /* NetworkClient.swift */; };
+		03303C0B20D0045D00BC9F1B /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303C0A20D0045D00BC9F1B /* AppError.swift */; };
+		03303C0C20D0045D00BC9F1B /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303C0A20D0045D00BC9F1B /* AppError.swift */; };
+		03303C0E20D0309E00BC9F1B /* NetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303C0D20D0309E00BC9F1B /* NetworkClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,9 @@
 		03303BFF20CEC22300BC9F1B /* ContentLoadableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoadableTests.swift; sourceTree = "<group>"; };
 		03303C0120CEDA9D00BC9F1B /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		03303C0220CEDA9D00BC9F1B /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		03303C0620CFF99600BC9F1B /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		03303C0A20D0045D00BC9F1B /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		03303C0D20D0309E00BC9F1B /* NetworkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +144,7 @@
 			children = (
 				03303BA820CE721A00BC9F1B /* AppDelegate */,
 				03303BA920CE725200BC9F1B /* Controllers */,
+				03303C0920D0044400BC9F1B /* Model */,
 				03303BAC20CE728900BC9F1B /* Resources */,
 				03303BAB20CE726D00BC9F1B /* Supporting Files */,
 				03303BAA20CE726200BC9F1B /* Views */,
@@ -216,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				03303BB720CE77FF00BC9F1B /* APIConstants.swift */,
+				03303C0620CFF99600BC9F1B /* NetworkClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -223,6 +233,7 @@
 		03303BBA20CE786100BC9F1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				03303C0D20D0309E00BC9F1B /* NetworkClientTests.swift */,
 				03303BBF20CE793700BC9F1B /* UserTests.swift */,
 			);
 			path = Model;
@@ -278,6 +289,14 @@
 				03303BD420CE9A8100BC9F1B /* UsersViewController.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		03303C0920D0044400BC9F1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				03303C0A20D0045D00BC9F1B /* AppError.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,12 +423,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				03303BB820CE77FF00BC9F1B /* APIConstants.swift in Sources */,
+				03303C0720CFF99600BC9F1B /* NetworkClient.swift in Sources */,
 				03303BD520CE9A8100BC9F1B /* UsersViewController.swift in Sources */,
 				03303B8820CE71EE00BC9F1B /* AppDelegate.swift in Sources */,
 				03303BB420CE779600BC9F1B /* User.swift in Sources */,
 				03303BCB20CE99EA00BC9F1B /* FlowController.swift in Sources */,
 				03303C0320CEDA9D00BC9F1B /* UserCell.swift in Sources */,
 				03303BC820CE8D7600BC9F1B /* UsersViewModel.swift in Sources */,
+				03303C0B20D0045D00BC9F1B /* AppError.swift in Sources */,
 				03303BDA20CE9C6E00BC9F1B /* Factory.swift in Sources */,
 				03303BFD20CEC1F900BC9F1B /* ContentLoadable.swift in Sources */,
 			);
@@ -421,6 +442,7 @@
 			files = (
 				03303BC520CE8A7600BC9F1B /* UsersViewModelTests.swift in Sources */,
 				03303C0520CFED6F00BC9F1B /* UserCell.swift in Sources */,
+				03303C0C20D0045D00BC9F1B /* AppError.swift in Sources */,
 				03303BFE20CEC1F900BC9F1B /* ContentLoadable.swift in Sources */,
 				03303BC920CE8D7600BC9F1B /* UsersViewModel.swift in Sources */,
 				03303BDC20CE9D3800BC9F1B /* FlowControllerTests.swift in Sources */,
@@ -430,8 +452,10 @@
 				03303BD220CE9A6300BC9F1B /* UsersViewControllerTests.swift in Sources */,
 				03303BD620CE9A8100BC9F1B /* UsersViewController.swift in Sources */,
 				03303BB920CE77FF00BC9F1B /* APIConstants.swift in Sources */,
+				03303C0820CFF99600BC9F1B /* NetworkClient.swift in Sources */,
 				03303BB520CE779600BC9F1B /* User.swift in Sources */,
 				03303C0020CEC22300BC9F1B /* ContentLoadableTests.swift in Sources */,
+				03303C0E20D0309E00BC9F1B /* NetworkClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
