@@ -27,9 +27,9 @@ class NetworkClientTests: XCTestCase {
         return NetworkClient(session: session)
     }
     let url = URL(string: "url")!
-    let successfulResponse = HTTPURLResponse(url: URL(string: "url")!, 
-                                             statusCode: 200, 
-                                             httpVersion: nil, 
+    let successfulResponse = HTTPURLResponse(url: URL(string: "url")!,
+                                             statusCode: 200,
+                                             httpVersion: nil,
                                              headerFields: nil)
 
     func testLoadMethodReturnsErrorWhenErrorIsNotNil() {

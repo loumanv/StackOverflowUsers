@@ -12,7 +12,7 @@ class UsersViewController: UIViewController {
 
     private(set) var viewModel: UsersViewModel?
 
-    @IBOutlet weak var table: UITableView! {
+    @IBOutlet weak private var table: UITableView! {
         didSet {
             table.rowHeight = UITableViewAutomaticDimension
             table.estimatedRowHeight = 80
@@ -20,22 +20,26 @@ class UsersViewController: UIViewController {
             table.register(UINib(nibName: cellString, bundle: nil), forCellReuseIdentifier: cellString)
         }
     }
-    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(activityIndicatorStyle: .gray)
+    @IBOutlet weak private var errorView: UIView!
+    @IBOutlet weak private var errorLabel: UILabel!
+    private let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(activityIndicatorStyle: .gray)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         table.dataSource = self
         refreshData()
         addNavigationItems()
+        errorLabel.text = NSLocalizedString("UsersLoadError", comment: "")
     }
 
     func addNavigationItems() {
         let activityBarButton = UIBarButtonItem(customView: activityIndicator)
         navigationItem.rightBarButtonItem  = activityBarButton
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reload",
-                                                           style: .plain,
-                                                           target: self,
-                                                           action: #selector(reload))
+        let leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("UsersReloadButtonTitle", comment: ""),
+                                                style: .plain,
+                                                target: self,
+                                                action: #selector(reload))
+        navigationItem.leftBarButtonItem = leftBarButtonItem
     }
 
     @objc func reload() {
@@ -69,6 +73,7 @@ extension UsersViewController: UITableViewDataSource {
 extension UsersViewController: ContentLoadable {
 
     func prepareData(_ completion: @escaping ContentLoadableCompletion) {
+        view.bringSubview(toFront: table)
         NetworkClient.shared.loadUsers { [unowned self] (users, error) in
             guard error == nil, let users = users, users.count > 0 else {
                 // Show appropriate error message
@@ -91,5 +96,9 @@ extension UsersViewController: ContentLoadable {
 
     func hideLoadingView() {
         activityIndicator.stopAnimating()
+    }
+
+    func showError(_ error: Error) {
+        view.bringSubview(toFront: errorView)
     }
 }

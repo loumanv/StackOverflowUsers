@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UsersViewController" customModule="StackOverflowUsers" customModuleProvider="target">
             <connections>
+                <outlet property="errorLabel" destination="3i2-q3-Nhs" id="xB2-DC-qEK"/>
+                <outlet property="errorView" destination="Lvy-5t-5i2" id="IUf-wP-f3p"/>
                 <outlet property="table" destination="Iw2-92-YOM" id="8FL-ca-p5Y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,11 +27,33 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lvy-5t-5i2">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;An error occured, please try again later&gt;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3i2-q3-Nhs">
+                            <rect key="frame" x="20" y="313.5" width="335" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="3i2-q3-Nhs" firstAttribute="leading" secondItem="Lvy-5t-5i2" secondAttribute="leading" constant="20" id="4YP-Ib-SdN"/>
+                        <constraint firstItem="3i2-q3-Nhs" firstAttribute="centerY" secondItem="Lvy-5t-5i2" secondAttribute="centerY" id="Fhj-hu-QAI"/>
+                        <constraint firstAttribute="trailing" secondItem="3i2-q3-Nhs" secondAttribute="trailing" constant="20" id="WIr-jQ-Kef"/>
+                        <constraint firstItem="3i2-q3-Nhs" firstAttribute="centerX" secondItem="Lvy-5t-5i2" secondAttribute="centerX" id="lIm-sM-GqE"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Lvy-5t-5i2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HZp-Jq-YFk"/>
                 <constraint firstItem="Iw2-92-YOM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="IbM-We-9Xj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Lvy-5t-5i2" secondAttribute="trailing" id="Khy-t1-lGb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Lvy-5t-5i2" secondAttribute="bottom" id="UO6-gB-S6Q"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Iw2-92-YOM" secondAttribute="trailing" id="VFE-bI-a0E"/>
+                <constraint firstItem="Lvy-5t-5i2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fIE-gK-20U"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Iw2-92-YOM" secondAttribute="bottom" id="gvF-pw-H1v"/>
                 <constraint firstItem="Iw2-92-YOM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yg2-bD-htn"/>
             </constraints>

@@ -40,6 +40,7 @@
 		03303C0B20D0045D00BC9F1B /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303C0A20D0045D00BC9F1B /* AppError.swift */; };
 		03303C0C20D0045D00BC9F1B /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303C0A20D0045D00BC9F1B /* AppError.swift */; };
 		03303C0E20D0309E00BC9F1B /* NetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303C0D20D0309E00BC9F1B /* NetworkClientTests.swift */; };
+		03303C1020D08DA900BC9F1B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03303C0F20D08DA900BC9F1B /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		03303C0620CFF99600BC9F1B /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		03303C0A20D0045D00BC9F1B /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		03303C0D20D0309E00BC9F1B /* NetworkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientTests.swift; sourceTree = "<group>"; };
+		03303C0F20D08DA900BC9F1B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				03303B8E20CE71EF00BC9F1B /* Assets.xcassets */,
+				03303C0F20D08DA900BC9F1B /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03303BD720CE9A8100BC9F1B /* UsersViewController.xib in Resources */,
+				03303C1020D08DA900BC9F1B /* Localizable.strings in Resources */,
 				03303BBD20CE78E600BC9F1B /* users.json in Resources */,
 				03303B9220CE71EF00BC9F1B /* LaunchScreen.storyboard in Resources */,
 				03303B8F20CE71EF00BC9F1B /* Assets.xcassets in Resources */,
