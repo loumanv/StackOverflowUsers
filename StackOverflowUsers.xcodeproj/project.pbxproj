@@ -29,6 +29,9 @@
 		03303BDA20CE9C6E00BC9F1B /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BC120CE798900BC9F1B /* Factory.swift */; };
 		03303BDC20CE9D3800BC9F1B /* FlowControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BDB20CE9D3800BC9F1B /* FlowControllerTests.swift */; };
 		03303BDD20CEA35800BC9F1B /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BCA20CE99EA00BC9F1B /* FlowController.swift */; };
+		03303BFD20CEC1F900BC9F1B /* ContentLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BFC20CEC1F900BC9F1B /* ContentLoadable.swift */; };
+		03303BFE20CEC1F900BC9F1B /* ContentLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BFC20CEC1F900BC9F1B /* ContentLoadable.swift */; };
+		03303C0020CEC22300BC9F1B /* ContentLoadableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BFF20CEC22300BC9F1B /* ContentLoadableTests.swift */; };
 		03303C0320CEDA9D00BC9F1B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303C0120CEDA9D00BC9F1B /* UserCell.swift */; };
 		03303C0420CEDA9D00BC9F1B /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03303C0220CEDA9D00BC9F1B /* UserCell.xib */; };
 		03303C0520CFED6F00BC9F1B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303C0120CEDA9D00BC9F1B /* UserCell.swift */; };
@@ -64,6 +67,8 @@
 		03303BD320CE9A8100BC9F1B /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		03303BD420CE9A8100BC9F1B /* UsersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersViewController.xib; sourceTree = "<group>"; };
 		03303BDB20CE9D3800BC9F1B /* FlowControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControllerTests.swift; sourceTree = "<group>"; };
+		03303BFC20CEC1F900BC9F1B /* ContentLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoadable.swift; sourceTree = "<group>"; };
+		03303BFF20CEC22300BC9F1B /* ContentLoadableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoadableTests.swift; sourceTree = "<group>"; };
 		03303C0120CEDA9D00BC9F1B /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		03303C0220CEDA9D00BC9F1B /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				03303BCA20CE99EA00BC9F1B /* FlowController.swift */,
+				03303BFC20CEC1F900BC9F1B /* ContentLoadable.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -257,6 +263,7 @@
 		03303BD020CE9A4D00BC9F1B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				03303BFF20CEC22300BC9F1B /* ContentLoadableTests.swift */,
 				03303BDB20CE9D3800BC9F1B /* FlowControllerTests.swift */,
 				03303BD120CE9A6300BC9F1B /* UsersViewControllerTests.swift */,
 			);
@@ -404,6 +411,7 @@
 				03303C0320CEDA9D00BC9F1B /* UserCell.swift in Sources */,
 				03303BC820CE8D7600BC9F1B /* UsersViewModel.swift in Sources */,
 				03303BDA20CE9C6E00BC9F1B /* Factory.swift in Sources */,
+				03303BFD20CEC1F900BC9F1B /* ContentLoadable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +421,7 @@
 			files = (
 				03303BC520CE8A7600BC9F1B /* UsersViewModelTests.swift in Sources */,
 				03303C0520CFED6F00BC9F1B /* UserCell.swift in Sources */,
+				03303BFE20CEC1F900BC9F1B /* ContentLoadable.swift in Sources */,
 				03303BC920CE8D7600BC9F1B /* UsersViewModel.swift in Sources */,
 				03303BDC20CE9D3800BC9F1B /* FlowControllerTests.swift in Sources */,
 				03303BDD20CEA35800BC9F1B /* FlowController.swift in Sources */,
@@ -422,6 +431,7 @@
 				03303BD620CE9A8100BC9F1B /* UsersViewController.swift in Sources */,
 				03303BB920CE77FF00BC9F1B /* APIConstants.swift in Sources */,
 				03303BB520CE779600BC9F1B /* User.swift in Sources */,
+				03303C0020CEC22300BC9F1B /* ContentLoadableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
