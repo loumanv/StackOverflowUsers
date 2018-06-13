@@ -23,10 +23,12 @@ class UsersViewController: UIViewController {
     @IBOutlet weak private var errorView: UIView!
     @IBOutlet weak private var errorLabel: UILabel!
     private let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(activityIndicatorStyle: .gray)
+    private var selectedIndexPath: IndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         table.dataSource = self
+        table.delegate = self
         refreshData()
         addNavigationItems()
         errorLabel.text = NSLocalizedString("UsersLoadError", comment: "")
@@ -53,10 +55,18 @@ extension UsersViewController: UITableViewDataSource {
         return viewModel?.users.count ?? 0
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if selectedIndexPath == indexPath {
+            return UserCell.expandableViewHeight
+        }
+        return UserCell.normalViewHeight
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellString = String(describing: UserCell.self)
         let dequeueCell = table.dequeueReusableCell(withIdentifier: cellString, for: indexPath)
         guard let cell = dequeueCell as? UserCell else { return UITableViewCell() }
+        cell.delegate = self
         cell.nameLabel.text = viewModel?.nameFor(row: indexPath.row)
         cell.reputationLabel.text = viewModel?.reputationFor(row: indexPath.row)
         if let url = viewModel?.profileImageURLFor(row: indexPath.row) {
@@ -67,6 +77,15 @@ extension UsersViewController: UITableViewDataSource {
         }
 
         return cell
+    }
+}
+
+extension UsersViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = (selectedIndexPath == indexPath) ? nil : indexPath
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
 }
 
@@ -87,6 +106,7 @@ extension UsersViewController: ContentLoadable {
     }
 
     func reloadView() {
+        selectedIndexPath = nil
         table.reloadData()
     }
 
@@ -100,5 +120,19 @@ extension UsersViewController: ContentLoadable {
 
     func showError(_ error: Error) {
         view.bringSubview(toFront: errorView)
+    }
+}
+
+extension UsersViewController: UserCellDelegate {
+
+    func followButtonTapped(for cell: UserCell) {
+        // TODO: Add follow functionality
+    }
+
+    func blockButtonTapped(for cell: UserCell) {
+        guard let index = table.indexPath(for: cell)?.row else { return }
+        viewModel?.removeUser(at: index)
+        selectedIndexPath = nil
+        table.reloadData()
     }
 }

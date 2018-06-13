@@ -33,4 +33,8 @@ class UsersViewModel {
             let imageURL = URL(string: profileImageUrl) else { return nil }
         return imageURL
     }
+
+    func removeUser(at index: Int) {
+        users.remove(at: index)
+    }
 }
