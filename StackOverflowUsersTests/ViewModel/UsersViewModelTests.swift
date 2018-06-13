@@ -38,4 +38,11 @@ class UsersViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.reputationFor(row: 0), "N/A")
         XCTAssertEqual(viewModel.profileImageURLFor(row: 0), nil)
     }
+
+    func testIsUserFollowedMethodReturnsTrueWhenTheUserExistsInsideFollowedUsersArray() {
+        let viewModel = Factory.createUsersViewModel()
+        viewModel.addFavouriteUser(Factory.createUser())
+
+        XCTAssertEqual(viewModel.isFollowedUser(at: 0), true)
+    }
 }

@@ -10,6 +10,7 @@ import Foundation
 
 class UsersViewModel {
 
+    private(set) var followedUsers: [User] = []
     private(set) var users: [User]
 
     init(users: [User]) {
@@ -34,7 +35,24 @@ class UsersViewModel {
         return imageURL
     }
 
+    func refreshUsers(_ users: [User]) {
+        self.users = users
+    }
+
     func removeUser(at index: Int) {
         users.remove(at: index)
+    }
+
+    func addFavouriteUser(_ user: User) {
+        followedUsers.append(user)
+    }
+
+    func removeFavourite(_ user: User) {
+        guard let index = followedUsers.index(of: user) else { return }
+        followedUsers.remove(at: index)
+    }
+
+    func isFollowedUser(at index: Int) -> Bool {
+       return followedUsers.contains(users[index])
     }
 }

@@ -1,3 +1,6 @@
 // Users
 "UsersLoadError" = "An error has occured, please try again later";
 "UsersReloadButtonTitle" = "Reload";
+"UserFollowButtonTitle" = "Follow";
+"UserUnfollowButtonTitle" = "Unfollow";
+"UserBlockButtonTitle" = "Block";

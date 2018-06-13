@@ -14,7 +14,7 @@ enum UserError: LocalizedError {
     case missingProfileImage
 }
 
-class User {
+class User: Equatable {
 
     private(set) var name: String
     private(set) var reputation: Int?
@@ -26,6 +26,10 @@ class User {
         self.name = name
         self.reputation = dictionary[APIConstants.User.reputation] as? Int
         self.profileImage = dictionary[APIConstants.User.profileImage] as? String
+    }
+
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.name == rhs.name && lhs.reputation == rhs.reputation
     }
 }
 

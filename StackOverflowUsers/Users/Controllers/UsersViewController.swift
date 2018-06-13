@@ -47,6 +47,25 @@ class UsersViewController: UIViewController {
     @objc func reload() {
         refreshData()
     }
+
+    func setup(_ cell: UserCell, forRowAt indexPath: IndexPath) -> UserCell {
+        cell.delegate = self
+        cell.nameLabel.text = viewModel?.nameFor(row: indexPath.row)
+        cell.reputationLabel.text = viewModel?.reputationFor(row: indexPath.row)
+        if let url = viewModel?.profileImageURLFor(row: indexPath.row) {
+            NetworkClient.shared.loadImage(url: url) { [cell] (image, error) in
+                guard error == nil, let image = image else { return }
+                cell.profileImageView.image = image
+            }
+        }
+        if let isFollowedUser = viewModel?.isFollowedUser(at: indexPath.row) {
+            cell.tickImageView?.image = isFollowedUser ? #imageLiteral(resourceName: "tick") : nil
+            let titleKey = isFollowedUser ? "UserUnfollowButtonTitle" : "UserFollowButtonTitle"
+            cell.followButton.setTitle(NSLocalizedString(titleKey, comment: ""), for: .normal)
+        }
+        cell.blockButton.setTitle((NSLocalizedString("UserBlockButtonTitle", comment: "")), for: .normal)
+        return cell
+    }
 }
 
 extension UsersViewController: UITableViewDataSource {
@@ -66,17 +85,8 @@ extension UsersViewController: UITableViewDataSource {
         let cellString = String(describing: UserCell.self)
         let dequeueCell = table.dequeueReusableCell(withIdentifier: cellString, for: indexPath)
         guard let cell = dequeueCell as? UserCell else { return UITableViewCell() }
-        cell.delegate = self
-        cell.nameLabel.text = viewModel?.nameFor(row: indexPath.row)
-        cell.reputationLabel.text = viewModel?.reputationFor(row: indexPath.row)
-        if let url = viewModel?.profileImageURLFor(row: indexPath.row) {
-            NetworkClient.shared.loadImage(url: url) { [cell] (image, error) in
-                guard error == nil, let image = image else { return }
-                cell.profileImageView.image = image
-            }
-        }
 
-        return cell
+        return setup(cell, forRowAt: indexPath)
     }
 }
 
@@ -100,7 +110,11 @@ extension UsersViewController: ContentLoadable {
                 completion(error)
                 return
             }
-            self.viewModel = UsersViewModel(users: users)
+            if self.viewModel == nil {
+                self.viewModel = UsersViewModel(users: users)
+            } else {
+                self.viewModel?.refreshUsers(users)
+            }
             completion(nil)
         }
     }
@@ -126,7 +140,10 @@ extension UsersViewController: ContentLoadable {
 extension UsersViewController: UserCellDelegate {
 
     func followButtonTapped(for cell: UserCell) {
-        // TODO: Add follow functionality
+        guard let indexPath = table.indexPath(for: cell), let user = viewModel?.users[indexPath.row] else { return }
+        cell.tickImageView.image == nil ? viewModel?.addFavouriteUser(user) : viewModel?.removeFavourite(user)
+        selectedIndexPath = nil
+        table.reloadData()
     }
 
     func blockButtonTapped(for cell: UserCell) {

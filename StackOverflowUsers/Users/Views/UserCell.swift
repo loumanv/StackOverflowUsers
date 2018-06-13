@@ -25,20 +25,12 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var blockButton: UIButton!
     @IBOutlet weak var followButton: UIButton!
+    @IBOutlet weak var tickImageView: UIImageView!
 
     override func prepareForReuse() {
         super.prepareForReuse()
         profileImageView.image = #imageLiteral(resourceName: "placeholderImage")
-    }
-
-    func collapse() {
-        blockButton.isHidden = true
-        followButton.isHidden = true
-    }
-
-    func expand() {
-        blockButton.isHidden = false
-        followButton.isHidden = false
+        tickImageView.image = nil
     }
 
     @IBAction func followButtonTapped(_ sender: UIButton) {
